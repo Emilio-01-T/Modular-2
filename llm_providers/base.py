@@ -1,17 +1,3 @@
-# llm/base.py
-"""
-base.py - Classe base per provider LLM
-
-- Definisce l'interfaccia e i metodi comuni per tutti i provider LLM (Ollama, OpenAI, ecc.).
-- Ogni nuovo provider deve estendere questa classe e implementare i metodi richiesti.
-- Permette di integrare facilmente nuovi modelli LLM nel framework.
-
-Consulta la documentazione inline per dettagli su come estendere un provider LLM custom.
-"""
-
-from abc import ABC, abstractmethod
-
-class LLM(ABC):
-    @abstractmethod
-    def generate(self, prompt: str) -> str:
-        pass
+version https://git-lfs.github.com/spec/v1
+oid sha256:501fd1f0a415a3fa37703460f9078a3739b73cdeaac9c426b49dbc0a951b446b
+size 530
