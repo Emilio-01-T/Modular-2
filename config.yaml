@@ -1,0 +1,100 @@
+llm:
+  provider: ollama
+  model: qwen2.5-coder:latest
+  endpoint: http://192.168.60.110/ollama
+
+tools:
+  - name: math
+    class_path: tools.math_tool.MathTool
+    config: {}
+  - name: google_search
+    class_path: plugins.web_search_plugin.WebSearchPlugin
+    config:
+      api_key: "AIzaSyD-EXAMPLE-KEY"
+      cx: "0123456789abcdefg"
+
+memory:
+  - name: session
+    class_path: core.memory.ConversationMemory
+    config: {}
+  - name: persistent
+    class_path: core.memory.BufferMemory
+    config:
+      maxlen: 50
+
+agents:
+  - name: coder
+    type: simple
+    llm: ollama
+    tools: [math]
+    system_prompt: "Sei un AI coder."
+  - name: researcher
+    type: simple
+    llm: ollama
+    tools: [google_search]
+    system_prompt: "Sei un AI ricercatore."
+
+pipelines:
+  - name: demo_pipeline
+    chains:
+      - name: main_chain
+        description: "Pipeline principale demo."
+        steps:
+          - name: load_memory
+            type: memory
+            component: session
+            output: memory_data
+          - name: agent_step
+            type: agent
+            component: coder
+            input:
+              prompt: "{user_input}"
+            output: agent_output
+            condition: "True"
+            fallback: null
+          - name: google_search_tool
+            type: tool
+            component: google_search
+            input:
+              query: "{user_input}"
+            output: search_results
+            condition: "'google_search' in agent_output"
+            fallback: null
+          - name: save_memory
+            type: memory
+            component: persistent
+            input:
+              data: "{agent_output}"
+            output: save_result
+    description: "Pipeline demo con agent, tool, memory e ricerca web."
+
+  - name: rag_pipeline
+    chains:
+      - name: rag_chain
+        description: "Pipeline per Retrieval Augmented Generation."
+        steps:
+          - name: retrieve_docs
+            type: retriever
+            component: chroma_retriever
+            input:
+              query: "{user_input}"
+            output: retrieved_docs
+          - name: generate_answer
+            type: agent
+            component: coder
+            input:
+              prompt: "{retrieved_docs}"
+            output: final_answer
+    description: "Pipeline RAG con retriever e agente."
+
+retrievers:
+  - name: chroma_retriever
+    class_path: core.retrievers.ChromaDBRetriever
+    config:
+      persist_directory: "chroma_db"
+      model_name: "all-MiniLM-L6-v2"
+
+plugins:
+  - name: automation_plugin
+    class_path: plugins.automation_plugin.AutomationPlugin
+    config: {}

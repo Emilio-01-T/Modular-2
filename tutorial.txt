@@ -1,0 +1,99 @@
+# modular-2: Tutorial completo (Luglio 2025)
+
+## 1. Installazione e setup ambiente
+
+1. Clona il repository:
+   ```zsh
+   git clone <repo-url> modular-2
+   cd modular-2
+   ```
+2. (Consigliato) Crea un virtualenv:
+   ```zsh
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+3. Installa le dipendenze:
+   ```zsh
+   pip install -r requirements.txt
+   # oppure manualmente:
+   pip install PyPDF2 click pyyaml
+   sudo apt install python3-tk  # per tkinter (Linux)
+   ```
+
+## 2. Avvio rapido e help
+
+- Per vedere tutti i comandi disponibili:
+  ```zsh
+  python cli.py help
+  ```
+- Per generare una pipeline YAML di esempio:
+  ```zsh
+  python cli.py quickstart
+  ```
+
+## 3. Configurazione pipeline (config.yaml)
+
+- Modifica `config.yaml` o usa `quickstart.yaml` come base.
+- Consulta `README_PIPELINE.md` per tutti i campi YAML supportati.
+
+## 4. Avvio chat/pipeline
+
+- Avvia la chat interattiva:
+  ```zsh
+  python cli.py run
+  ```
+- Usa `/upload` per caricare un file (txt/pdf) e inserire `{file_content}` nei prompt.
+- Esempio:
+  ```
+  /upload
+  (seleziona file)
+  📝 Inserisci il prompt: Riassumi questo testo: {file_content}
+  ```
+
+## 5. Comandi CLI avanzati
+
+- `python cli.py history`   # Mostra la cronologia dei prompt
+- `python cli.py clear`     # Pulisce la cronologia
+- `python cli.py log`       # Visualizza il file di log
+- `python cli.py config`    # Mostra la configurazione attiva
+- `python cli.py list-modules` # Elenca tutti i moduli caricabili
+- `python cli.py scaffold agent MyAgent` # Crea un nuovo agent da template
+
+## 6. Esempi di prompt e pipeline
+
+- Consulta `python cli.py examples` per prompt e YAML di esempio.
+- Consulta `README_PIPELINE.md` per template YAML avanzati.
+
+## 7. Debug e troubleshooting
+
+- Usa `python cli.py run --debug` per log dettagliati.
+- Controlla `logfile.log` per errori e tracing.
+- Valida la configurazione:
+  ```zsh
+  python cli.py config-check
+  ```
+
+## 8. Estensione e sviluppo
+
+- Consulta `README_DEVELOPER.md` per guida architetturale, best practice, come aggiungere nuovi agent/tool/plugin, e come contribuire.
+- Usa `python cli.py scaffold` per generare rapidamente nuovi moduli.
+
+## 9. API REST (opzionale)
+
+- Avvia l'API FastAPI:
+  ```zsh
+  python -m core.deployment
+  ```
+- Consulta e modifica `core/deployment.py` per aggiungere endpoint custom.
+
+## 10. Risorse utili
+
+- `README.md`           # Overview e changelog
+- `README_PIPELINE.md`  # Guida YAML pipeline
+- `README_DEVELOPER.md` # Guida tecnica e best practice
+- `tutorial.txt`        # Questo tutorial step-by-step
+- `logfile.log`         # Log dettagliati
+
+---
+
+**Per qualsiasi dubbio, usa `python cli.py help` o consulta la documentazione!**
