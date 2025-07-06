@@ -1,0 +1,40 @@
+llm:
+  provider: ollama
+  model: qwen2.5-coder:latest
+  endpoint: http://localhost:11434
+
+tools:
+  - name: math
+    class_path: tools.math_tool.MathTool
+    config: {}
+
+agents:
+  - name: coder
+    type: simple
+    llm: ollama
+    system_prompt: "Sei un AI che scrive codice Python."
+
+  - name: fixer
+    type: tool
+    llm: ollama
+    tools: [tools.math_tool.MathTool]
+    system_prompt: "Sei un AI che corregge codice con tool."
+
+  - name: analyst
+    type: multi_tool
+    llm: ollama
+    tools: [tools.math_tool.MathTool]
+    dispatch_strategy: keyword
+
+pipelines:
+  - name: demo_pipeline
+    chains:
+      - name: main_chain
+        steps:
+          - name: agent_step
+            type: agent
+            component: coder
+            input:
+              prompt: "{user_input}"
+            output: agent_output
+    description: "Pipeline demo con agent."

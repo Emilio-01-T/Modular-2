@@ -1,0 +1,75 @@
+2025-07-06 15:10:44,221 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 15:10:48,047 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 15:10:48,047 - modular-2 - ERROR - [Factory] Nessuna classe trovata per retriever.chroma_retriever
+2025-07-06 15:11:17,441 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 15:11:17,443 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 15:13:16,042 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 15:13:16,042 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 15:13:50,532 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 15:13:50,533 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 15:14:05,156 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 15:14:05,156 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 17:47:06,258 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 17:47:06,308 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 17:47:17,193 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 17:47:17,234 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 17:51:06,649 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 17:51:06,690 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 17:58:25,356 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 17:58:25,400 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 17:58:34,784 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 17:58:34,784 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 17:59:06,712 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 17:59:06,713 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 19:17:18,093 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 19:17:18,141 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 19:17:25,156 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 19:17:25,156 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 19:17:40,233 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 19:17:40,233 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 19:18:03,660 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 19:18:03,660 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 19:41:47,996 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 19:41:48,035 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 19:42:11,892 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 19:42:11,931 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 19:42:11,933 - managers.agent_manager - WARNING - ⚠️ Tool 'math' non caricato: not enough values to unpack (expected 2, got 1)
+2025-07-06 19:42:11,933 - agents.simple_agent - INFO - 🤖 Agente 'coder' inizializzato con 0 tool(s)
+2025-07-06 19:42:11,933 - managers.agent_manager - INFO - 🤖 Agente 'coder' creato con 0 tool(s).
+2025-07-06 19:42:11,933 - managers.agent_manager - WARNING - ⚠️ Tool 'google_search' non caricato: not enough values to unpack (expected 2, got 1)
+2025-07-06 19:42:11,933 - agents.simple_agent - INFO - 🤖 Agente 'researcher' inizializzato con 0 tool(s)
+2025-07-06 19:42:11,933 - managers.agent_manager - INFO - 🤖 Agente 'researcher' creato con 0 tool(s).
+2025-07-06 19:42:11,933 - managers.agent_manager - INFO - ✅ Totale agenti creati: 2
+2025-07-06 19:42:24,251 - agents.simple_agent - INFO - 🧠 Risposta generata da 'coder'
+2025-07-06 19:42:24,257 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 19:42:24,257 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 19:43:31,617 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 19:43:31,660 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 19:43:31,661 - managers.agent_manager - WARNING - ⚠️ Tool 'math' non caricato: not enough values to unpack (expected 2, got 1)
+2025-07-06 19:43:31,661 - agents.simple_agent - INFO - 🤖 Agente 'coder' inizializzato con 0 tool(s)
+2025-07-06 19:43:31,661 - managers.agent_manager - INFO - 🤖 Agente 'coder' creato con 0 tool(s).
+2025-07-06 19:43:31,661 - managers.agent_manager - WARNING - ⚠️ Tool 'google_search' non caricato: not enough values to unpack (expected 2, got 1)
+2025-07-06 19:43:31,661 - agents.simple_agent - INFO - 🤖 Agente 'researcher' inizializzato con 0 tool(s)
+2025-07-06 19:43:31,661 - managers.agent_manager - INFO - 🤖 Agente 'researcher' creato con 0 tool(s).
+2025-07-06 19:43:31,661 - managers.agent_manager - INFO - ✅ Totale agenti creati: 2
+2025-07-06 19:43:38,184 - agents.simple_agent - INFO - 🧠 Risposta generata da 'coder'
+2025-07-06 19:43:38,189 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 19:43:38,189 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 20:20:27,685 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 20:20:27,726 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 20:20:27,726 - managers.agent_manager - WARNING - ⚠️ Tool 'math' non caricato: not enough values to unpack (expected 2, got 1)
+2025-07-06 20:20:27,726 - agents.simple_agent - INFO - 🤖 Agente 'coder' inizializzato con 0 tool(s)
+2025-07-06 20:20:27,726 - managers.agent_manager - INFO - 🤖 Agente 'coder' creato con 0 tool(s).
+2025-07-06 20:20:27,726 - managers.agent_manager - WARNING - ⚠️ Tool 'google_search' non caricato: not enough values to unpack (expected 2, got 1)
+2025-07-06 20:20:27,726 - agents.simple_agent - INFO - 🤖 Agente 'researcher' inizializzato con 0 tool(s)
+2025-07-06 20:20:27,726 - managers.agent_manager - INFO - 🤖 Agente 'researcher' creato con 0 tool(s).
+2025-07-06 20:20:27,726 - managers.agent_manager - INFO - ✅ Totale agenti creati: 2
+2025-07-06 20:21:41,522 - modular-2 - INFO - ✅ Configurazione YAML validata e convertita in oggetto Config.
+2025-07-06 20:21:41,558 - llm_providers.ollama_llm - INFO - 📡 OllamaLLM inizializzato con modello: qwen2.5-coder:latest - endpoint: http://192.168.60.110/ollama
+2025-07-06 20:21:41,559 - managers.agent_manager - WARNING - ⚠️ Tool 'math' non caricato: not enough values to unpack (expected 2, got 1)
+2025-07-06 20:21:41,559 - agents.simple_agent - INFO - 🤖 Agente 'coder' inizializzato con 0 tool(s)
+2025-07-06 20:21:41,559 - managers.agent_manager - INFO - 🤖 Agente 'coder' creato con 0 tool(s).
+2025-07-06 20:21:41,559 - managers.agent_manager - WARNING - ⚠️ Tool 'google_search' non caricato: not enough values to unpack (expected 2, got 1)
+2025-07-06 20:21:41,559 - agents.simple_agent - INFO - 🤖 Agente 'researcher' inizializzato con 0 tool(s)
+2025-07-06 20:21:41,559 - managers.agent_manager - INFO - 🤖 Agente 'researcher' creato con 0 tool(s).
+2025-07-06 20:21:41,559 - managers.agent_manager - INFO - ✅ Totale agenti creati: 2
