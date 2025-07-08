@@ -27,12 +27,23 @@ agents:
     type: simple
     llm: ollama
     tools: [math]
-    system_prompt: "Sei un AI coder."
+    system_prompt: "Sei un AI coder esperto. Puoi scrivere codice, risolvere problemi di programmazione e fare calcoli matematici quando necessario."
   - name: researcher
     type: simple
     llm: ollama
     tools: [google_search]
-    system_prompt: "Sei un AI ricercatore."
+    system_prompt: "Sei un AI ricercatore esperto. Puoi cercare informazioni e analizzare dati."
+  - name: automation_agent
+    type: agentic_automation
+    llm: ollama
+    tools: [math, google_search]
+    system_prompt: "Sei un agente autonomo capace di eseguire task complessi multi-step. Analizza il task, crea un piano e eseguilo passo dopo passo."
+    max_iterations: 10
+  - name: tool_specialist
+    type: tool
+    llm: ollama
+    tools: [math]
+    system_prompt: "Sei specializzato nell'uso efficace dei tool per risolvere problemi."
 
 pipelines:
   - name: demo_pipeline
@@ -68,6 +79,19 @@ pipelines:
             output: save_result
     description: "Pipeline demo con agent, tool, memory e ricerca web."
 
+  - name: automation_pipeline
+    chains:
+      - name: automation_chain
+        description: "Pipeline per task autonomi."
+        steps:
+          - name: autonomous_execution
+            type: agent
+            component: automation_agent
+            input:
+              prompt: "{user_input}"
+            output: automation_result
+    description: "Pipeline per esecuzione autonoma di task complessi."
+
   - name: rag_pipeline
     chains:
       - name: rag_chain
@@ -83,7 +107,7 @@ pipelines:
             type: agent
             component: coder
             input:
-              prompt: "{retrieved_docs}"
+              prompt: "Basandoti sui seguenti documenti: {retrieved_docs}\n\nRispondi alla domanda: {user_input}"
             output: final_answer
     description: "Pipeline RAG con retriever e agente."
 
