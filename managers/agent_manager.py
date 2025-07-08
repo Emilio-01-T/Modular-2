@@ -13,7 +13,7 @@ class AgentManager:
     Manages the lifecycle and execution of agents.
     """
     
-    def __init__(self, config: Dict, factory: Factory):
+    def __init__(self, config: Dict, factory: Factory = None):
         """
         Initialize the agent manager.
         
@@ -22,17 +22,71 @@ class AgentManager:
             factory: Factory instance for creating components
         """
         self.config = config
-        self.factory = factory
+        self.factory = factory or Factory()
         self.agents = {}
         self.tools = {}
+        self.llms = {}
         
-        # Load tools first
+        # Load LLMs first
+        self._load_llms()
+        
+        # Load tools
         self._load_tools()
         
         # Load agents
         self._load_agents()
         
         logger.info(f"✅ Totale agenti creati: {len(self.agents)}")
+    
+    def _load_llms(self):
+        """Load and register all LLMs."""
+        # Handle single LLM config
+        llm_config = self.config.get("llm")
+        if llm_config:
+            provider = llm_config.get("provider", "ollama")
+            self.llms[provider] = self._create_llm_instance(llm_config)
+            if self.llms[provider]:
+                logger.info(f"🧠 LLM '{provider}' caricato con successo")
+        
+        # Handle multiple LLMs config
+        llms_config = self.config.get("llms", [])
+        for llm_conf in llms_config:
+            llm_name = llm_conf.get("name")
+            if llm_name:
+                self.llms[llm_name] = self._create_llm_instance(llm_conf)
+                if self.llms[llm_name]:
+                    logger.info(f"🧠 LLM '{llm_name}' caricato con successo")
+    
+    def _create_llm_instance(self, llm_config: Dict) -> Optional[Any]:
+        """Create LLM instance from config."""
+        try:
+            provider = llm_config.get("provider")
+            model = llm_config.get("model")
+            endpoint = llm_config.get("endpoint")
+            api_key = llm_config.get("api_key")
+            config = llm_config.get("config", {})
+            
+            if provider == "ollama":
+                from llm_providers.ollama_llm import OllamaLLM
+                return OllamaLLM(
+                    model=model,
+                    endpoint=endpoint,
+                    **config
+                )
+            elif provider == "openai":
+                from llm_providers.openai_llm import OpenAILLM
+                return OpenAILLM(
+                    model=model,
+                    api_key=api_key,
+                    **config
+                )
+            else:
+                logger.error(f"❌ Provider LLM sconosciuto: '{provider}'")
+                return None
+                
+        except Exception as e:
+            logger.error(f"❌ Errore nella creazione LLM: {e}")
+            return None
     
     def _load_tools(self):
         """Load and register all tools."""
@@ -170,40 +224,19 @@ class AgentManager:
     
     def _get_llm_instance(self, llm_name: str) -> Optional[Any]:
         """Get LLM instance by name."""
-        try:
-            # Try to get from factory registry
-            llm_config = self._find_llm_config(llm_name)
-            if not llm_config:
-                logger.error(f"❌ Configurazione LLM '{llm_name}' non trovata")
-                return None
-            
-            provider = llm_config.get("provider")
-            model = llm_config.get("model")
-            endpoint = llm_config.get("endpoint")
-            api_key = llm_config.get("api_key")
-            config = llm_config.get("config", {})
-            
-            if provider == "ollama":
-                from llm_providers.ollama_llm import OllamaLLM
-                return OllamaLLM(
-                    model=model,
-                    endpoint=endpoint,
-                    **config
-                )
-            elif provider == "openai":
-                from llm_providers.openai_llm import OpenAILLM
-                return OpenAILLM(
-                    model=model,
-                    api_key=api_key,
-                    **config
-                )
-            else:
-                logger.error(f"❌ Provider LLM sconosciuto: '{provider}'")
-                return None
-                
-        except Exception as e:
-            logger.error(f"❌ Errore nella creazione LLM '{llm_name}': {e}")
-            return None
+        if llm_name in self.llms:
+            return self.llms[llm_name]
+        
+        # Fallback: try to find in config and create
+        llm_config = self._find_llm_config(llm_name)
+        if llm_config:
+            llm_instance = self._create_llm_instance(llm_config)
+            if llm_instance:
+                self.llms[llm_name] = llm_instance
+                return llm_instance
+        
+        logger.error(f"❌ LLM '{llm_name}' non trovato")
+        return None
     
     def _find_llm_config(self, llm_name: str) -> Optional[Dict]:
         """Find LLM configuration by name."""

@@ -33,14 +33,11 @@ class Factory:
         try:
             config = config or {}
             
-            # Check cache first
+            # Check cache first (only for stateless components)
             cache_key = f"{component_type}:{class_path}"
-            if cache_key in self.component_cache:
+            if cache_key in self.component_cache and component_type in ["tool"]:
                 logger.debug(f"🔄 Componente '{class_path}' trovato in cache")
-                # For tools and similar stateless components, we can reuse instances
-                # For agents, we might want to create new instances
-                if component_type in ["tool"]:
-                    return self.component_cache[cache_key]
+                return self.component_cache[cache_key]
             
             # Parse class path
             module_path, class_name = self._parse_class_path(class_path)
@@ -63,8 +60,9 @@ class Factory:
             # Create instance
             instance = self._create_instance(component_class, config)
             if instance:
-                # Cache the instance for reuse
-                self.component_cache[cache_key] = instance
+                # Cache the instance for reuse (only for stateless components)
+                if component_type in ["tool"]:
+                    self.component_cache[cache_key] = instance
                 logger.info(f"✅ Componente '{class_path}' creato con successo")
                 return instance
             else:
